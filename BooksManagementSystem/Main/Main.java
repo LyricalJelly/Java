@@ -12,7 +12,7 @@ public class Main {
         while (true) {
             user.operation(bookList, user.menu());
             try {
-                Thread.sleep(2000); // 休眠3秒
+                Thread.sleep(2000);
             } catch (Exception e) {
                 System.out.println("Error!");
             }
