@@ -28,5 +28,12 @@ public class Deck {
 
     public Deck shuffleDeck(Deck deck) {
         Collections.shuffle((List<?>) deck);
+        return deck;
+    }
+
+    public Card draw() {
+        Card card = new Card(deck.get(deck.size() - 1).getColor(), deck.get(deck.size() - 1).getValue());
+        deck.remove(deck.size() - 1);
+        return card;
     }
 }
