@@ -37,10 +37,4 @@ public class Player implements Iterable<Card> {
         }
         System.out.println();
     }
-
-    public Card playCards(int index) {
-        Card card = new Card(cards.get(index).getColor(), cards.get(index).getValue());
-        cards.remove(index);
-        return card;
-    }
 }
