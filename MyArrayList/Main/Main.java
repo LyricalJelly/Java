@@ -1,5 +1,6 @@
 package Main;
 
+import MyArrayList.MyArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,11 +8,11 @@ public class Main {
         for (int i = 0; i < 15; i++) {
             list.add(i);
         }
-        list.add(10, 10);
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        list.add(0, 0);
+        for (Integer i : list) {
+            System.out.println(i);
         }
-        // ArrayList<Integer> a = new ArrayList<>();
-        // a.add(10,10);
+        System.out.println(list.contains(13));
     }
+
 }

@@ -1,6 +1,5 @@
 package MyArrayList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -10,7 +9,7 @@ public class MyArrayList<T> implements Iterable<T> {
 
     private static final Object[] emptyArray = {};
 
-    private Object[] Array;
+    Object[] Array;
 
     private int size;
 
@@ -97,8 +96,7 @@ public class MyArrayList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        return null;
+        return new Itr();
     }
 
     public Object[] toArray() {
@@ -128,8 +126,8 @@ public class MyArrayList<T> implements Iterable<T> {
         } else if (this.size == 0) {
             this.Array = new Object[capacity];
         }
-        for (int i = index; i < size; i++) {
-            this.Array[i + 1] = this.Array[i];
+        for (int i = size; i > index; i--) {
+            this.Array[i] = this.Array[i - 1];
         }
         this.Array[index] = element;
         this.size++;
@@ -150,4 +148,42 @@ public class MyArrayList<T> implements Iterable<T> {
         return this.Array = array;
     }
 
+    public void remove(int index) {
+        for (int i = index; i < this.size; i++) {
+            this.Array[i] = this.Array[i + 1];
+        }
+        this.size--;
+    }
+
+    public boolean remove(T element) {
+        for (int i = 0; i < this.size; i++) {
+            if (element.equals(this.Array[i])) {
+                remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private class Itr implements Iterator<T> {
+
+        private int cursor;
+
+        public Itr() {
+            cursor = 0;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return (cursor != size);
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public T next() {
+            T returnItem = (T) Array[cursor];
+            cursor += 1;
+            return returnItem;
+        }
+    }
 }
