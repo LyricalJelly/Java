@@ -1,7 +1,7 @@
-package Operation;
+package BooksManagementSystem.Operation;
 
-import Book.Book;
-import BookList.BookList;
+import BooksManagementSystem.Book.Book;
+import BooksManagementSystem.BookList.BookList;
 
 public class AddOperation implements IOperatable {
     @Override

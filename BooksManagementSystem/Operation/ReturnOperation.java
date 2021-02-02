@@ -1,6 +1,6 @@
-package Operation;
+package BooksManagementSystem.Operation;
 
-import BookList.BookList;
+import BooksManagementSystem.BookList.BookList;
 
 public class ReturnOperation implements IOperatable {
     @Override

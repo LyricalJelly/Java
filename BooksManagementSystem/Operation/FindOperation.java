@@ -1,8 +1,8 @@
-package Operation;
+package BooksManagementSystem.Operation;
 
-import BookList.BookList;
+import BooksManagementSystem.BookList.BookList;
 
-public class FindOperation implements Operation.IOperatable {
+public class FindOperation implements BooksManagementSystem.Operation.IOperatable {
     @Override
     public void operation(BookList bookList) {
         System.out.println("Please input name of a book which you want to find.");

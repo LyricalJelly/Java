@@ -1,11 +1,11 @@
-package Player;
+package ShuffleDeck.Player;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Card.Card;
-import Deck.Deck;
+import ShuffleDeck.Card.Card;
+import ShuffleDeck.Deck.Deck;
 
 public class Player implements Iterable<Card> {
     private List<Card> cards;

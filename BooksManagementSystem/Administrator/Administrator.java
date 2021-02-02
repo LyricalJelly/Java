@@ -1,12 +1,12 @@
-package Administrator;
+package BooksManagementSystem.Administrator;
 
-import BookList.BookList;
-import Operation.AddOperation;
-import Operation.DeleteOperation;
-import Operation.ExitOperation;
-import Operation.FindOperation;
-import Operation.IOperatable;
-import User.User;
+import BooksManagementSystem.BookList.BookList;
+import BooksManagementSystem.Operation.AddOperation;
+import BooksManagementSystem.Operation.DeleteOperation;
+import BooksManagementSystem.Operation.ExitOperation;
+import BooksManagementSystem.Operation.FindOperation;
+import BooksManagementSystem.Operation.IOperatable;
+import BooksManagementSystem.User.User;
 
 public class Administrator extends User {
     public Administrator() {

@@ -1,10 +1,10 @@
-package Deck;
+package ShuffleDeck.Deck;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import Card.Card;
+import ShuffleDeck.Card.Card;
 
 public class Deck {
     private List<Card> deck;

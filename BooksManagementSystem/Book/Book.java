@@ -1,4 +1,4 @@
-package Book;
+package BooksManagementSystem.Book;
 
 public class Book {
     private String name;

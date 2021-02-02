@@ -1,12 +1,12 @@
-package NormalUser;
+package BooksManagementSystem.NormalUser;
 
-import BookList.BookList;
-import Operation.BorrowOperation;
-import Operation.ExitOperation;
-import Operation.FindOperation;
-import Operation.IOperatable;
-import Operation.ReturnOperation;
-import User.User;
+import BooksManagementSystem.BookList.BookList;
+import BooksManagementSystem.Operation.BorrowOperation;
+import BooksManagementSystem.Operation.ExitOperation;
+import BooksManagementSystem.Operation.FindOperation;
+import BooksManagementSystem.Operation.IOperatable;
+import BooksManagementSystem.Operation.ReturnOperation;
+import BooksManagementSystem.User.User;
 
 public class NormalUser extends User {
     public NormalUser() {

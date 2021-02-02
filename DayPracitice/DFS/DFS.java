@@ -1,4 +1,4 @@
-package DFS;
+package DayPracitice.DFS;
 
 import java.util.HashMap;
 import java.util.List;

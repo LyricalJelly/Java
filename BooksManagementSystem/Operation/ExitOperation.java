@@ -1,8 +1,8 @@
-package Operation;
+package BooksManagementSystem.Operation;
 
-import BookList.BookList;
+import BooksManagementSystem.BookList.BookList;
 
-public class ExitOperation implements Operation.IOperatable {
+public class ExitOperation implements BooksManagementSystem.Operation.IOperatable {
     @Override
     public void operation(BookList bookList) {
         System.out.println("System exited.");

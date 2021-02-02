@@ -1,9 +1,9 @@
-package Main;
+package BooksManagementSystem.Main;
 
-import Administrator.Administrator;
-import BookList.BookList;
-import NormalUser.NormalUser;
-import User.User;
+import BooksManagementSystem.Administrator.Administrator;
+import BooksManagementSystem.BookList.BookList;
+import BooksManagementSystem.NormalUser.NormalUser;
+import BooksManagementSystem.User.User;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package User;
+package BooksManagementSystem.User;
 
-import BookList.BookList;
-import Operation.IOperatable;
+import BooksManagementSystem.BookList.BookList;
+import BooksManagementSystem.Operation.IOperatable;
 
 public abstract class User {
     protected IOperatable[] iOperations;

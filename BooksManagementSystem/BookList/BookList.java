@@ -1,8 +1,8 @@
-package BookList;
+package BooksManagementSystem.BookList;
 
 import java.util.Scanner;
 
-import Book.Book;
+import BooksManagementSystem.Book.Book;
 
 public class BookList {
     private Book[] books;

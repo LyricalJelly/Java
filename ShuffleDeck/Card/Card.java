@@ -1,4 +1,4 @@
-package Card;
+package ShuffleDeck.Card;
 
 public class Card {
     private String color;

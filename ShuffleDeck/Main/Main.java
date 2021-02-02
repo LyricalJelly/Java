@@ -1,7 +1,7 @@
-package Main;
+package ShuffleDeck.Main;
 
-import Deck.Deck;
-import Player.Player;
+import ShuffleDeck.Deck.Deck;
+import ShuffleDeck.Player.Player;
 
 public class Main {
     public static void main(String[] args) {

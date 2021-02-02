@@ -1,6 +1,6 @@
-package Operation;
+package BooksManagementSystem.Operation;
 
-import BookList.BookList;
+import BooksManagementSystem.BookList.BookList;
 
 public interface IOperatable {
     public abstract void operation(BookList bookList);
