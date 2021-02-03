@@ -151,7 +151,7 @@ public class SingleLinkedList<T> implements Iterable<T> {
     }
 
     public boolean addAll(SingleLinkedList<T> element) {
-        return addAll(size, element);
+        return addAll(size - 1, element);
     }
 
     public boolean addAll(int index, SingleLinkedList<T> element) {
