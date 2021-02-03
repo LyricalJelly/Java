@@ -8,9 +8,9 @@ public class Main {
         list.add(5);
         list.add(6);
         list.add(7);
-        list.remove(0);
-        for (var i : list) {
-            System.out.println(i);
-        }
+        list.addFirst(4);
+        list.traverse();
+        list.removeFirst();
+        list.traverse();
     }
 }

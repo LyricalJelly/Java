@@ -5,6 +5,19 @@ import java.util.NoSuchElementException;
 
 public class SingleLinkedList<T> implements Iterable<T> {
 
+    private static class Node<T> {
+        T item;
+        Node<T> next;
+
+        Node(Node<T> prev, T element, Node<T> next) {
+            this.item = element;
+            if (prev != null) {
+                prev.next = this;
+            }
+            this.next = next;
+        }
+    }
+
     int size;
 
     Node<T> first;
@@ -15,8 +28,14 @@ public class SingleLinkedList<T> implements Iterable<T> {
     }
 
     private void linkFirst(T element) {
-        final Node<T> f = first;
-        final Node<T> newNode = new Node<>(f, element);
+        Node<T> newNode = null;
+        if (first == null) {
+            newNode = new Node<T>(first, element, null);
+
+        } else {
+            newNode = new Node<T>(null, element, first);
+        }
+        first = newNode;
         if (last == null) {
             last = newNode;
         }
@@ -24,8 +43,7 @@ public class SingleLinkedList<T> implements Iterable<T> {
     }
 
     private void linkLast(T element) {
-        final Node<T> l = last;
-        final Node<T> newNode = new Node<>(l, element);
+        final Node<T> newNode = new Node<>(last, element, null);
         last = newNode;
         if (first == null) {
             first = newNode;
@@ -67,6 +85,7 @@ public class SingleLinkedList<T> implements Iterable<T> {
         if (x == null) {
             final T element = first.item;
             first = first.next;
+            size--;
             return element;
         } else {
             final T element = x.next.item;
@@ -80,21 +99,6 @@ public class SingleLinkedList<T> implements Iterable<T> {
             return element;
         }
 
-    }
-
-    private static class Node<T> {
-        T item;
-        Node<T> next;
-
-        Node(Node<T> prev, T element) {
-            this.item = element;
-            if (prev == null) {
-                prev = this;
-            } else {
-                prev.next = this;
-            }
-            this.next = null;
-        }
     }
 
     public T getFirst() {
@@ -238,5 +242,19 @@ public class SingleLinkedList<T> implements Iterable<T> {
             nextIndex++;
             return node.item;
         }
+    }
+
+    public void traverse() {
+        for (var i : this) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    public void print() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(node(i).item);
+        }
+        System.out.println();
     }
 }
