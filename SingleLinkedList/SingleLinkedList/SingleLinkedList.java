@@ -98,7 +98,6 @@ public class SingleLinkedList<T> implements Iterable<T> {
             }
             return element;
         }
-
     }
 
     public T getFirst() {
@@ -253,7 +252,7 @@ public class SingleLinkedList<T> implements Iterable<T> {
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(node(i).item);
+            System.out.print(node(i).item + " ");
         }
         System.out.println();
     }
