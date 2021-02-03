@@ -25,7 +25,7 @@ public class SingleLinkedList<T> implements Iterable<T> {
 
     private void linkLast(T element) {
         final Node<T> l = last;
-        final Node<T> newNode = new Node<>(last, element);
+        final Node<T> newNode = new Node<>(l, element);
         last = newNode;
         if (first == null) {
             first = newNode;
@@ -64,15 +64,22 @@ public class SingleLinkedList<T> implements Iterable<T> {
     }
 
     T unlinkAfterThis(Node<T> x) {
-        final T element = x.next.item;
-        final Node<T> next = x.next;
-        if (next == null) {
-            last = x;
+        if (x == null) {
+            final T element = first.item;
+            first = first.next;
+            return element;
         } else {
-            x.next = next.next;
-            size--;
+            final T element = x.next.item;
+            final Node<T> next = x.next;
+            if (next == null) {
+                last = x;
+            } else {
+                x.next = next.next;
+                size--;
+            }
+            return element;
         }
-        return element;
+
     }
 
     private static class Node<T> {
@@ -139,22 +146,97 @@ public class SingleLinkedList<T> implements Iterable<T> {
         return true;
     }
 
+    public boolean addAll(SingleLinkedList<T> element) {
+        return addAll(size, element);
+    }
+
+    public boolean addAll(int index, SingleLinkedList<T> element) {
+        checkPositionIndex(index);
+        this.size += element.size();
+        Node<T> f = first;
+        for (int i = 0; i < index; i++) {
+            f = f.next;
+        }
+        f.next = element.node(0);
+        this.last = element.node(element.size() - 1);
+        return true;
+    }
+
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;
     }
 
-    public boolean addAll(int index, SingleLinkedList<T> list) {
-
+    private void checkPositionIndex(int index) {
+        if (!isPositionIndex(index)) {
+            throw new IndexOutOfBoundsException();
+        }
     }
 
-    public boolean addAll(SingleLinkedList<T> list) {
-        return addAll(size, list);
+    private boolean isElementIndexIndex(int index) {
+        return index >= 0 && index < size;
+    }
+
+    private void checkElementIndexIndex(int index) {
+        if (!isElementIndexIndex(index)) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    public T get(int index) {
+        checkElementIndexIndex(index);
+        return node(index).item;
+    }
+
+    public Node<T> node(int index) {
+        Node<T> node = first;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public T set(int index, T element) {
+        checkElementIndexIndex(index);
+        Node<T> node = node(index);
+        T oldVal = node.item;
+        node.item = element;
+        return oldVal;
+    }
+
+    public T remove(int index) {
+        checkElementIndexIndex(index);
+        if (index == 0) {
+            return unlinkAfterThis(null);
+        }
+        return unlinkAfterThis(node(index - 1));
     }
 
     @Override
-    public Iterator iterator() {
-        // TODO Auto-generated method stub
-        return null;
+    public Iterator<T> iterator() {
+        return new Itr(0);
     }
 
+    private class Itr implements Iterator<T> {
+        private Node<T> next;
+        private int nextIndex;
+
+        Itr(int index) {
+            next = (index == size) ? null : node(index);
+            nextIndex = index;
+        }
+
+        public boolean hasNext() {
+            return nextIndex < size;
+        }
+
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            Node<T> node = next;
+            next = next.next;
+            nextIndex++;
+            return node.item;
+        }
+    }
 }
