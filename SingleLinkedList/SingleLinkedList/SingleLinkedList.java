@@ -3,6 +3,8 @@ package SingleLinkedList.SingleLinkedList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import MyArrayList.MyArrayList;
+
 public class SingleLinkedList<T> implements Iterable<T> {
 
     private static class Node<T> {
@@ -25,6 +27,13 @@ public class SingleLinkedList<T> implements Iterable<T> {
     Node<T> last;
 
     public SingleLinkedList() {
+    }
+
+    public SingleLinkedList(MyArrayList<T> element) {
+        SingleLinkedList<T> list = new SingleLinkedList<T>();
+        for (T i : element) {
+            list.add(i);
+        }
     }
 
     private void linkFirst(T element) {

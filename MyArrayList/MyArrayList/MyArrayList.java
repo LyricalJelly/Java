@@ -181,9 +181,7 @@ public class MyArrayList<T> implements Iterable<T> {
         @SuppressWarnings("unchecked")
         @Override
         public T next() {
-            T returnItem = (T) Array[cursor];
-            cursor += 1;
-            return returnItem;
+            return (T) Array[cursor++];
         }
     }
 }
